@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('./src/head.html') %>
+</head>
+<body>
+
+    <%- include('./src/header.html') %>
+    <main class="main">
+        <div class="main-img">
+            <h1>Deeps Recentes</h1>
+            <img src="<%= data[0].video %>" alt="">
+            <span class="play" id="smooth"><a href=""><img src="../public/img/play.svg" alt=""></a></span>
+        </div>
+        <div class="main-sobre">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem aperiam tempore cupiditate iure id dolore, optio ratione dicta assumenda consequuntur pariatur reprehenderit labore libero, nobis explicabo delectus fugiat velit rem.</p>
+        </div>
+    </main>
+
+    <section class="container" id="container">
+        <% for(let i = 0; i < data.length; i++) { %>
+        <div class="content" id="content">
+            <img id="content-img" src="<%= data[i].video %>" alt="">
+            <div class="items-data">
+                <h1 class="titulo"><%= data[i].titulo %></h1>
+                <p class="autor"><%= data[i].autor %></p>
+                <p class="data"><%- data[i].data %></p>
+                <span class="play" id="play"><img src="../public/img/play.svg" alt=""></span>
+            </div>
+        </div>
+        <% } %>
+    </section>
+
+    <%- include('./src/footer.html') %>
+    
+    <script src="../public/js/src.js"></script>
+</body>
+</html>
