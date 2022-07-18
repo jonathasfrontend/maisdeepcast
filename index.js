@@ -24,10 +24,10 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
-app.get('/deeppodcast', (req, res) => {
-    async = axios.get(process.env.URL_API_PODCAST).then(function(data){
+app.get('/deeppodcast', async (req, res) => {
+    await axios.get(process.env.URL_API_PODCAST).then(function(data){
         data.data.reverse();
-        var itenspod = await = data.data.map(function(val){
+        var itenspod  = data.data.map(function(val){
             return {
                 titulo: val.titulo,
                 autor: val.autor,
